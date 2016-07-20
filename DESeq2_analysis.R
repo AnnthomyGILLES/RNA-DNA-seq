@@ -13,10 +13,10 @@ sampleFiles<-grep('htseq',list.files(directory),value=TRUE)
 # view sampleFiles
 sampleFiles
 
-sampleCondition<-c('N2_WT','eat2_mut','nhr62_mut','e2_n6')
-sampleBatch <- c("Batch1","Batch1","Batch1","Batch1","Batch2","Batch2","Batch2","Batch2","Batch3","Batch3","Batch3","Batch3")
+sampleCondition<-c('N2_WT','eat2_mut')
+sampleBatch <- c("Batch1","Batch1","Batch2","Batch2","Batch3","Batch3")
 
-sampleCondition <- factor(sampleCondition, levels=c('N2_WT','eat2_mut','nhr62_mut','e2_n6'))
+sampleCondition <- factor(sampleCondition, levels=c('N2_WT','eat2_mut'))
 sampleTable<-data.frame(sampleName=sampleFiles, fileName=sampleFiles, genotype=sampleCondition ,Batch = sampleBatch)
 sampleTable 
 
