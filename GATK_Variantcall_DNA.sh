@@ -121,7 +121,7 @@ for f in $(ls *_sequence.fq);do
     bwa mem -M -t 18 -R '@RG\tID:${f:16:(-12)}\tSM:${f:16:(-12)}\tPL:illumina\tLB:lib1\tPU:unit1' ${faref} ${fb}${f::(-3)}.fastq > ${bm}${f::(-12)}.sam 
  
     printf '\nSort SAM\n\n'
-	java -jar ${pic} SortSam SORT_ORDER=coordinate INPUT=${bm}${f::(-12)}.sam OUTPUT=${ss}${f::(-12)}.bam TMP_DIR=`pwd`/tmp
+    java -jar ${pic} SortSam SORT_ORDER=coordinate INPUT=${bm}${f::(-12)}.sam OUTPUT=${ss}${f::(-12)}.bam TMP_DIR=`pwd`/tmp
 
 	printf '\nRead groups\n\n' 
     java -jar ${pic} AddOrReplaceReadGroups I=${ss}${f::(-12)}.bam O=${rg}${f::(-12)}.bam SO=coordinate RGID=${f:16:(-12)} RGLB=lib1 RGPL=illumina RGPU=unit1 \
